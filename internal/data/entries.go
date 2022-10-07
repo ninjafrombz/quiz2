@@ -12,7 +12,7 @@ type Entry struct {
 	ID int64 `json:"id"`
 	CreatedAt time.Time `json:"-"`
 	Name string `json:"name"`
-	Contact string `json:"contact"`
+	Nationality string `json:"nationality"`
 	Phone string `json:"phone"`
 	Email string `json:"email,omitempty"`
 	Address string `json:"address"`
@@ -25,8 +25,8 @@ func ValidateEntries(v *validator.Validator, entry *Entry) {
 		v.Check(entry.Name != "", "name", "must be provided")
 		v.Check(len(entry.Name) <= 200, "name", "must not be more than 200 bytes long")
 	
-		v.Check(entry.Contact != "", "contact", "must be provided")
-		v.Check(len(entry.Contact) <= 200, "contact", "must not be more than 200 bytes long")
+		v.Check(entry.Nationality != "", "nationality", "must be provided")
+		v.Check(len(entry.Nationality) <= 200, "nationality", "must not be more than 200 bytes long")
 	
 		v.Check(entry.Address != "", "address", "must be provided")
 		v.Check(len(entry.Address) <= 500, "address", "must not be more than 200 bytes long")

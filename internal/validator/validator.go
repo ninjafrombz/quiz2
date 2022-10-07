@@ -3,7 +3,6 @@
 package validator
 
 import (
-	"net/url"
 	"regexp"
 )
 
@@ -45,11 +44,6 @@ func Matches(value string, rx *regexp.Regexp) bool {
 	return rx.MatchString(value)
 }
 
-// ValidWebsite() checks if a string value is a valid web URL
-func ValidWebsite(website string) bool {
-	_, err := url.ParseRequestURI(website)
-	return err == nil
-}
 
 // AddError() adds an error entry to the Errors map 
 func (v *Validator) AddError(key, message string) {

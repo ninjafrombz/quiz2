@@ -1,6 +1,4 @@
 // Filename : cmd/api/healthcheck.go
-
-// Filename : cmd/api/healthcheck.go
 package main
 
 import (
@@ -24,7 +22,5 @@ func (app *application) healthcheckHandler(w http.ResponseWriter, r *http.Reques
 		app.serverErrorResponse(w, r, err)
 		return
 	}
-	// Add a newline for easier viewing
-	// js = append(js, '\n')
-
+	
 }

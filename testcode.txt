@@ -1,0 +1,8 @@
+BODY='{"name":"Desire Amagwula", "nationality":"Nigerian", "phone":"501-607-1123", "email":"dezamagwula@gmail.com", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
+
+
+BODY='{"name":"XYZ", "nationality":"Nigerian", "phone":"501-607-1123", "email":"dezamagwula@gmail.com", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
+
+BODY='{"name":"XYZ", "nationality":"Nigerian", "phone":"501-607-1123", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
+
+BODY='{"name":"XYZ", "nationality":"Nigerian", "phone":"501-607-1123", "email":null, "address":"17 Peach street", "mode":["online", "face-to-face"]}'

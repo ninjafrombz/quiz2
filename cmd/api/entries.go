@@ -16,7 +16,7 @@ func (app *application) createInfoHandler(w http.ResponseWriter, r *http.Request
 	// Our target decode destination fmt.Fprintln(w, "create a new school..")
 	var input struct {
 		Name    string   `json:"name"`
-		Contact string   `json:"contact"`
+		Nationality string   `json:"nationality"`
 		Phone   string   `json:"phone"`
 		Email   string   `json:"email"`
 		Address string   `json:"address"`
@@ -33,7 +33,7 @@ func (app *application) createInfoHandler(w http.ResponseWriter, r *http.Request
 	// Copy the values from the input struct to a new school struct
 	entry := &data.Entry{
 		Name:    input.Name,
-		Contact: input.Contact,
+		Nationality: input.Nationality,
 		Phone:   input.Phone,
 		Email:   input.Email,
 		Address: input.Address,
