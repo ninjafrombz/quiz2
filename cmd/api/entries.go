@@ -4,14 +4,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+	
 
-	"quiz2.desireamagwula.net/internals/data"
-	"quiz2.desireamagwula.net/internals/validator"
+	"quiz2.amagwuladesire.net/internal/data"
+	"quiz2.amagwuladesire.net/internal/validator"
 )
 
 // CreateSchoolHandler for the POST /v1/schools" endpoint
 
-func (app *application) createSchoolHandler(w http.ResponseWriter, r *http.Request) {
+func (app *application) createInfoHandler(w http.ResponseWriter, r *http.Request) {
 	// Our target decode destination fmt.Fprintln(w, "create a new school..")
 	var input struct {
 		Name    string   `json:"name"`
@@ -30,7 +31,7 @@ func (app *application) createSchoolHandler(w http.ResponseWriter, r *http.Reque
 	}
 
 	// Copy the values from the input struct to a new school struct
-	school := &data.School{
+	entry := &data.Entry{
 		Name:    input.Name,
 		Contact: input.Contact,
 		Phone:   input.Phone,
@@ -43,7 +44,7 @@ func (app *application) createSchoolHandler(w http.ResponseWriter, r *http.Reque
 	v := validator.New()
 
 	// Check the map to determine if there were any validation errors
-	if data.ValidateSchool(v, school); !v.Valid() {
+	if data.ValidateEntries(v, entry); !v.Valid() {
 		app.failedValidationResponse(w, r, v.Errors)
 		return
 	}
@@ -52,14 +53,28 @@ func (app *application) createSchoolHandler(w http.ResponseWriter, r *http.Reque
 
 }
 
-func (app *application) showSchoolHandler(w http.ResponseWriter, r *http.Request) {
+func (app *application) showRandHandler(w http.ResponseWriter, r *http.Request) {
 	id, err := app.readIDParam(r)
 	if err != nil {
 		app.notFoundResponse(w, r)
 		return
 	}
+	value:=int(id)
+	tools:=&data.Tools{
+		Int: value,
+	}
+	v := validator.New()
+	if data.ValidateInt(v,tools); !v.Valid(){
+		app.failedValidationResponse(w,r,v.Errors)
+		return
+	}
+	randstring := tools.GenerateRandomString(value)
+	data := envelope{
+		"id": value,
+		"randomstring": randstring,
+	}
 
-	err = app.writeJSON(w, http.StatusOK, envelope{"school": school}, nil)
+	err = app.writeJSON(w, http.StatusOK, data, nil)
 	if err != nil {
 		app.serverErrorResponse(w, r, err)
 	}
