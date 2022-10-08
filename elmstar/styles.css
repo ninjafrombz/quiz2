@@ -1,0 +1,17 @@
+.materials-icon.md-18 { font-size: 18px; } 
+.materials-icon.md-18 { font-size: 24px; } 
+.materials-icon.md-18 { font-size: 36px; } 
+.materials-icon.md-18 { font-size: 100px; } 
+
+.header {
+    background-color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 40px;
+    margin: 0;
+    font-weight: 600;
+}
