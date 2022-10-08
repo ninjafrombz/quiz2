@@ -5232,7 +5232,7 @@ var $author$project$Star$viewPhoto = function (model) {
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$class('detailed-photo')
+				$elm$html$Html$Attributes$class('header')
 			]),
 		_List_fromArray(
 			[

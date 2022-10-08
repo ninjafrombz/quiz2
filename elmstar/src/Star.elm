@@ -25,7 +25,7 @@ viewPhoto model =
             if model.liked then Unlike else Like
     in
 
-    div [ class "detailed-photo" ]
+    div [ class "header" ]
            
                     [span
                         [class "material-icons md-100", onClick msg]
